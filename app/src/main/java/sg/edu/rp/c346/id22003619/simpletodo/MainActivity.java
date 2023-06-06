@@ -46,14 +46,14 @@ Spinner spinner;
                     case 0:
                         btnDelete.setEnabled(false);
                         btnAdd.setEnabled(true);
-                        etTask.setHint("Type in a new task here");
+                        etTask.setHint(R.string.newTask);
                         break;
                     case 1:
                         btnAdd.setEnabled(false);
                         btnDelete.setEnabled(true);
-                        etTask.setHint("Type in the index of the task to be removed");
+                        etTask.setHint(R.string.indexRemove);
                         if (tasks.size()<1) {
-                            Toast.makeText(MainActivity.this, "You don't have any task to remove", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, R.string.noTask, Toast.LENGTH_SHORT).show();
                         }
                             break;
                 }
@@ -69,7 +69,7 @@ Spinner spinner;
             @Override
             public void onClick(View v) {
                 if (etTask.getText().toString().trim().length() == 0){
-                    Toast.makeText(MainActivity.this, "Please enter a task to add", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getString(R.string.toAdd), Toast.LENGTH_SHORT).show();
                 }
                 else {
                     String ntask = etTask.getText().toString();
@@ -84,10 +84,10 @@ Spinner spinner;
             public void onClick(View v) {
 
                 if (etTask.getText().toString().trim().length() == 0){
-                    Toast.makeText(MainActivity.this, "Please enter an index number to delete", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getString(R.string.toDelete), Toast.LENGTH_SHORT).show();
                  }
                 else if(Integer.parseInt(etTask.getText().toString())>tasks.size()-1 || tasks.size()<0) {
-                Toast.makeText(MainActivity.this, "Wrong index number", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, getString(R.string.wrongIndex), Toast.LENGTH_SHORT).show();
                  }
                 else {
                     tasks.remove(Integer.parseInt(etTask.getText().toString()));
